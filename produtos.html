@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Produtos | Conecta Tech</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar"><nav class="nav wrap"><a class="brand" href="index.html"><span>CT</span> Conecta Tech</a>
+<div class="navlinks"><a href="index.html">Início</a><a class="active" href="produtos.html">Produtos</a><a href="admin.html">Dashboard</a><a class="cart-link" href="carrinho.html">🛒 Carrinho <b id="cartCount">0</b></a></div><button class="menu-btn" onclick="toggleMenu()">☰</button></nav></header>
+<main class="wrap page">
+  <div class="page-title"><div><span class="eyebrow">CATÁLOGO</span><h1>Produtos</h1><p>Escolha seus eletrônicos e acessórios.</p></div></div>
+  <div class="filters"><div class="search"><span>⌕</span><input id="busca" placeholder="Pesquisar produto..."></div><select id="categoria"><option value="">Todas as categorias</option></select><select id="ordem"><option value="padrao">Mais relevantes</option><option value="menor">Menor preço</option><option value="maior">Maior preço</option></select></div>
+  <div id="status" class="notice hidden"></div><div id="produtos" class="product-grid"></div>
+</main>
+<footer class="footer"><div class="wrap"><b>Conecta Tech</b><span>Todos os produtos são fictícios para fins acadêmicos.</span></div></footer>
+<script src="js/app.js"></script><script src="js/produtos.js"></script>
+</body></html>

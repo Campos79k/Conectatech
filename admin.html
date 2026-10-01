@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard | Conecta Tech</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar"><nav class="nav wrap"><a class="brand" href="index.html"><span>CT</span> Conecta Tech</a><div class="navlinks"><a href="index.html">Início</a><a href="produtos.html">Produtos</a><a class="active" href="admin.html">Dashboard</a><a class="cart-link" href="carrinho.html">🛒 Carrinho <b id="cartCount">0</b></a></div><button class="menu-btn" onclick="toggleMenu()">☰</button></nav></header>
+<main class="wrap page"><div class="page-title"><span class="eyebrow">GESTÃO</span><h1>Dashboard</h1><p>Resumo do comércio e dos pedidos registrados.</p></div>
+<div id="cards" class="stats-grid"></div>
+<div class="admin-grid"><section class="panel"><div class="panel-head"><h2>Produtos por categoria</h2></div><div id="categories"></div></section><section class="panel"><div class="panel-head"><h2>Últimos pedidos</h2><button class="btn small" onclick="clearDemoOrders()">Limpar pedidos demo</button></div><div id="orders"></div></section></div>
+<div class="notice">Modo demonstração: os pedidos feitos neste navegador ficam salvos localmente. Ao configurar o Supabase, a aplicação pode usar o banco PostgreSQL real.</div>
+</main><footer class="footer"><div class="wrap"><b>Conecta Tech</b><span>Dashboard acadêmico.</span></div></footer>
+<script src="js/app.js"></script><script src="js/admin.js"></script>
+</body></html>

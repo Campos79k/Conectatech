@@ -1,4 +1,0 @@
-const featured=document.getElementById("featured");
-featured.innerHTML=DEMO_PRODUCTS.slice(0,4).map(card).join("");
-function card(p){return `<article class="product-card"><div class="product-img">${p.emoji}</div><div class="product-body"><h3>${p.nome}</h3><p>${p.descricao}</p><div class="price">${money(p.preco)}</div><button class="btn" onclick="addHome(${p.id})">Adicionar ao carrinho</button></div></article>`}
-function addHome(id){const p=productById(id),c=getCart(),i=c.find(x=>x.produto_id===id);if(i)i.quantidade++;else c.push({produto_id:p.id,nome_produto:p.nome,quantidade:1,preco_unitario:p.preco,emoji:p.emoji});setCart(c);updateCartCount();toast("Produto adicionado ao carrinho!")}

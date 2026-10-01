@@ -1,0 +1,7 @@
+const orders=getOrders(),cards=document.getElementById("cards"),categories=document.getElementById("categories"),ordersEl=document.getElementById("orders");
+const totalSales=orders.reduce((s,o)=>s+Number(o.total),0),itemsSold=orders.reduce((s,o)=>s+o.itens.reduce((a,i)=>a+i.quantidade,0),0);
+cards.innerHTML=`<div class="stat"><span>Produtos cadastrados</span><b>${DEMO_PRODUCTS.length}</b></div><div class="stat"><span>Pedidos registrados</span><b>${orders.length}</b></div><div class="stat"><span>Itens vendidos</span><b>${itemsSold}</b></div><div class="stat"><span>Valor dos pedidos</span><b>${money(totalSales)}</b></div>`;
+const counts=DEMO_CATEGORIES.map(c=>({nome:c.nome,qtd:DEMO_PRODUCTS.filter(p=>p.categoria_id===c.id).length})),max=Math.max(...counts.map(x=>x.qtd));
+categories.innerHTML=counts.map(x=>`<div class="bar"><div class="bar-head"><span>${x.nome}</span><b>${x.qtd}</b></div><div class="bar-track"><div class="bar-fill" style="width:${x.qtd/max*100}%"></div></div></div>`).join("");
+ordersEl.innerHTML=orders.length?orders.slice(0,8).map(o=>`<div class="order"><div class="order-head"><b>Pedido #${o.id}</b><span class="status">${o.status}</span></div><div class="muted">${o.cliente} • ${money(o.total)} • ${new Date(o.criado_em).toLocaleDateString("pt-BR")}</div></div>`).join(""):'<div class="empty">Ainda não há pedidos. Faça um pedido pelo checkout para aparecer aqui.</div>';
+function clearDemoOrders(){if(confirm("Limpar os pedidos salvos neste navegador?")){localStorage.removeItem("conecta_orders");location.reload()}}

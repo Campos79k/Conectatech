@@ -94,7 +94,7 @@ const DEMO_PRODUCTS = [
     categoria_id: 4,
     nome: "Notebook Gamer ROG Strix G16",
     descricao: "Notebook gamer de alto desempenho da linha ROG.",
-    preco: 0,
+    preco: 10.956.36,
     emoji: "💻",
     imagem: "imagem/Notebook Gamer ROG Strix G16.jpg"
   }

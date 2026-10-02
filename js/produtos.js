@@ -7,7 +7,7 @@ function renderProducts(){
  el.innerHTML=l.length?l.map(card).join(""):'<div class="empty">Nenhum produto encontrado.<br><br><a class="btn" href="produtos.html">Limpar filtros</a></div>';
 }
 <div class="product-img">
-    <img src="${p.imagem}" alt="${p.nome}" class="product-image">
+    <img src="${p.imagem}" alt="${p.nome}" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
 </div>
 function add(id){const p=productById(id),c=getCart(),i=c.find(x=>x.produto_id===id);if(i)i.quantidade++;else c.push({produto_id:p.id,nome_produto:p.nome,quantidade:1,preco_unitario:p.preco,emoji:p.emoji});setCart(c);updateCartCount();toast("Produto adicionado ao carrinho!")}
 busca.addEventListener("input",renderProducts);categoria.addEventListener("change",renderProducts);ordem.addEventListener("change",renderProducts);renderProducts();

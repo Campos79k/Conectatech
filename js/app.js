@@ -99,3 +99,228 @@ const DEMO_PRODUCTS = [
     imagem: "img/Notebook Gamer ROG Strix G16.jpg"
   }
 ];
+
+const DEMO_CATEGORIES = [
+  { id: 1, nome: "Áudio" },
+  { id: 2, nome: "Periféricos" },
+  { id: 3, nome: "Acessórios" },
+  { id: 4, nome: "Informática" }
+];
+
+const money = v =>
+  Number(v).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
+
+const getCart = () =>
+  JSON.parse(localStorage.getItem("conecta_cart") || "[]");
+
+const setCart = c =>
+  localStorage.setItem("conecta_cart", JSON.stringify(c));
+
+const getOrders = () =>
+  JSON.parse(localStorage.getItem("conecta_orders") || "[]");
+
+function updateCartCount() {
+  const el = document.getElementById("cartCount");
+
+  if (el) {
+    el.textContent = getCart().reduce(
+      (s, i) => s + i.quantidade,
+      0
+    );
+  }
+}
+
+function toast(msg) {
+  const x = document.createElement("div");
+
+  x.className = "toast";
+  x.textContent = msg;
+
+  document.body.appendChild(x);
+
+  setTimeout(() => x.remove(), 2200);
+}
+
+function toggleMenu() {
+  document.querySelector(".navlinks")?.classList.toggle("open");
+}
+
+function productById(id) {
+  return DEMO_PRODUCTS.find(p => p.id === Number(id));
+}
+
+
+/* =========================================================
+   PRODUTOS COM IMAGENS
+   ========================================================= */
+
+function renderProducts(products = DEMO_PRODUCTS) {
+
+  const container =
+    document.getElementById("products") ||
+    document.getElementById("productGrid") ||
+    document.getElementById("productsGrid") ||
+    document.getElementById("product-list");
+
+  if (!container) {
+    console.warn("Container dos produtos não encontrado.");
+    return;
+  }
+
+  container.innerHTML = products.map(p => {
+
+    const imagem = p.imagem
+      ? `
+        <img
+          src="${p.imagem}"
+          alt="${p.nome}"
+          class="product-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+
+        <span
+          class="product-image-fallback"
+          style="display:none;"
+        >
+          ${p.emoji || "📦"}
+        </span>
+      `
+      : `
+        <span class="product-image-fallback">
+          ${p.emoji || "📦"}
+        </span>
+      `;
+
+    return `
+      <article class="product-card">
+
+        <div class="product-image">
+          ${imagem}
+        </div>
+
+        <div class="product-info">
+
+          <h3>${p.nome}</h3>
+
+          <p>
+            ${p.descricao}
+          </p>
+
+          <div class="product-price">
+            ${money(p.preco)}
+          </div>
+
+          <button
+            type="button"
+            onclick="addToCart(${p.id})"
+          >
+            Adicionar ao carrinho
+          </button>
+
+        </div>
+
+      </article>
+    `;
+
+  }).join("");
+}
+
+
+/* =========================================================
+   CSS DAS IMAGENS
+   ========================================================= */
+
+function addProductImageStyles() {
+
+  if (document.getElementById("product-image-styles")) {
+    return;
+  }
+
+  const style = document.createElement("style");
+
+  style.id = "product-image-styles";
+
+  style.textContent = `
+
+    .product-image {
+      width: 100%;
+      height: 240px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      background: #f5f5f5;
+
+      border-radius: 12px;
+
+      margin-bottom: 15px;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+      display: block;
+    }
+
+    .product-image-fallback {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 64px;
+    }
+
+    .product-card {
+      overflow: hidden;
+    }
+
+    .product-info {
+      padding: 10px;
+    }
+
+    .product-info h3 {
+      margin: 0 0 8px;
+    }
+
+    .product-info p {
+      margin: 0 0 12px;
+    }
+
+    .product-price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+  `;
+
+  document.head.appendChild(style);
+}
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  addProductImageStyles();
+
+  renderProducts();
+
+  updateCartCount();
+
+});

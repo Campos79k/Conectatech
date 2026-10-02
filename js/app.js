@@ -6,7 +6,7 @@ const DEMO_PRODUCTS = [
     descricao: "Headset gamer com áudio 7.1, microfone e drivers de 53mm.",
     preco: 149.90,
     emoji: "🎧",
-    imagem: "img/v9 pro.jpg"
+    imagem: "imagem/v9 pro.jpg"
   },
 
   {
@@ -16,7 +16,7 @@ const DEMO_PRODUCTS = [
     descricao: "Webcam Full HD para aulas, reuniões, streaming e chamadas de vídeo.",
     preco: 179.90,
     emoji: "📷",
-    imagem: "img/webcan.jpg"
+    imagem: "imagem/webcan.jpg"
   },
 
   {
@@ -26,7 +26,7 @@ const DEMO_PRODUCTS = [
     descricao: "Teclado gamer com tecnologia Hall Effect e iluminação RGB.",
     preco: 349.90,
     emoji: "⌨️",
-    imagem: "img/A75-Hall-Effect-Keyboard.jpg"
+    imagem: "imagem/A75-Hall-Effect-Keyboard.jpg"
   },
 
   {
@@ -36,7 +36,7 @@ const DEMO_PRODUCTS = [
     descricao: "Cabo HDMI de alta velocidade para resolução 8K e altas taxas de atualização.",
     preco: 79.90,
     emoji: "🔗",
-    imagem: "img/cabo hdmi pichau. jpg.jpg"
+    imagem: "imagem/cabo hdmi pichau. jpg.jpg"
   },
 
   {
@@ -46,7 +46,7 @@ const DEMO_PRODUCTS = [
     descricao: "Microfone para jogos, streaming, gravações e chamadas com iluminação RGB.",
     preco: 299.90,
     emoji: "🎙️",
-    imagem: "img/microfone fifine.jpg"
+    imagem: "imagem/microfone fifine.jpg"
   },
 
   {
@@ -56,7 +56,7 @@ const DEMO_PRODUCTS = [
     descricao: "Monitor gamer QHD com taxa de atualização de 180Hz e tempo de resposta de 0,5ms.",
     preco: 1499.90,
     emoji: "🖥️",
-    imagem: "img/monitor aoc.jpg"
+    imagem: "imagem/monitor aoc.jpg"
   },
 
   {
@@ -66,7 +66,7 @@ const DEMO_PRODUCTS = [
     descricao: "Bateria portátil para carregar seus dispositivos.",
     preco: 129.90,
     emoji: "🔋",
-    imagem: "img/power bank.jpg"
+    imagem: "imagem/power bank.jpg"
   },
 
   {
@@ -76,7 +76,7 @@ const DEMO_PRODUCTS = [
     descricao: "Suporte ajustável para melhorar a posição da tela.",
     preco: 99.90,
     emoji: "💻",
-    imagem: "img/Suporte notbook.jpg"
+    imagem: "imagem/Suporte notbook.jpg"
   },
 
   {
@@ -86,7 +86,7 @@ const DEMO_PRODUCTS = [
     descricao: "Superfície ampla para teclado e mouse.",
     preco: 79.90,
     emoji: "🖥️",
-    imagem: "img/Titorion Mouse Pad Gamer. jpg.jpg"
+    imagem: "imagem/Titorion Mouse Pad Gamer. jpg.jpg"
   },
 
   {
@@ -96,7 +96,7 @@ const DEMO_PRODUCTS = [
     descricao: "Notebook gamer de alto desempenho da linha ROG.",
     preco: 0,
     emoji: "💻",
-    imagem: "img/Notebook Gamer ROG Strix G16.jpg"
+    imagem: "imagem/Notebook Gamer ROG Strix G16.jpg"
   }
 ];
 
